@@ -1,4 +1,5 @@
 import './App.css';
+import RegisterReactBootstrap from './component/RegisterReactBootstrap';
 
 const handleRegister = (event) => {
   event.preventDefault();
@@ -14,13 +15,8 @@ const handleChange= (event) =>{
 function App() {
   return (
   
-    <div className="App">
-      <form onSubmit={handleRegister}>
-        <input onChange={handleChange} type="email" name="email" id="" placeholder='Your email'/>
-        <input type="password" name="password" id="" placeholder='Your password' />
-        <br />
-        <button type='submit'>Register</button>
-      </form>
+    <div className="">
+      <RegisterReactBootstrap></RegisterReactBootstrap>
     </div>
   );
 }
