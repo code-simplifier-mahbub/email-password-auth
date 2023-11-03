@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import app from "../firebase/firebase.init";
+import app from "../../firebase/firebase.init";
+import { Link } from "react-router-dom";
+
 
 const auth = getAuth(app);
 
@@ -65,6 +67,7 @@ const RegisterReactBootstrap = () => {
           Register
         </Button>
       </Form>
+      <p>Already have an account? Please <Link to='/login'>Login</Link></p>
     </div>
   );
 };

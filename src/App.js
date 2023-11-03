@@ -1,22 +1,36 @@
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
-import RegisterReactBootstrap from './component/RegisterReactBootstrap';
+import Main from './component/Main/Main';
+import RegisterReactBootstrap from './component/RegisterReactBootstrap/RegisterReactBootstrap';
+import LoginBootstrap from './component/LoginBootstrap/LoginBootstrap';
 
-const handleRegister = (event) => {
-  event.preventDefault();
-  const email = event.target.email.value;
-  const password = event.target.password.value;
-  console.log(email, password)
-}
-
-const handleChange= (event) =>{
-  console.log(event.target.value)
-}
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Main></Main>,
+      children: [
+        {
+          path:'/',
+          element: <RegisterReactBootstrap></RegisterReactBootstrap>
+        },
+      {
+        path: '/register',
+        element: <RegisterReactBootstrap></RegisterReactBootstrap>
+      },
+      {
+        path: '/login',
+        element: <LoginBootstrap></LoginBootstrap>
+      }
+      ]
+    }
+  ])
+  
   return (
   
     <div className="">
-      <RegisterReactBootstrap></RegisterReactBootstrap>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
